@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% block title %}
+  Редактировать профиль
+{% endblock %}
+{% block content %}
+  {% if user.is_authenticated %}
+    <div class="col d-flex justify-content-center">
+      <div class="card" style="width: 40rem;">
+        <div class="card-header">
+          Редактировать профиль
+        </div>
+        <div class="card-body">
+          <form method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% bootstrap_button button_type="submit" content="Сохранить" %}
+          </form>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
